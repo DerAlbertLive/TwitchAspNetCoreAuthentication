@@ -52,15 +52,17 @@ namespace OpenId
 
                     o.GetClaimsFromUserInfoEndpoint = true;
                     o.SaveTokens = true;
+                    
+                    // Standard ist signin-oidc, signout-oidc, signedout-callback-oidc, jedoch muss es je OpenIdConnect Configuration einmalig sein
+                    // um direkt für weitere Provider gewappnet zu sein, auch bei nur einem Pfad festlegen
+                    // so spart man sich später anpassungen, dies Pfade müssen dem OpenIdConnect Provider bekannt sein.
+                    o.CallbackPath = "/signin-adc";
+                    o.RemoteSignOutPath = "/signout-adc"; 
+                    o.SignedOutCallbackPath = "/signedout-callback-adc";
 
-                    o.CallbackPath =
-                        "/signin-adc"; // Standard is signin-oidc, jedoch muss es PRO OpenIdConnect Provider einmalig sein
-                    o.RemoteSignOutPath =
-                        "/signout-adc"; // um direkt für weitere Provider gewappnet zu sein, auch bei nur einem Pfad festlegen
-                    o.SignedOutCallbackPath = "/signedout-callback-adc"; // so spart man sich später anpassungen
                     o.SignInScheme = "External";
                     o.SignOutScheme = "Cookies";
-                    o.SignedOutRedirectUri = "/";
+                    o.SignedOutRedirectUri = "/"; // dahin wird nach dem erfolgtem Logout weitergeleitet
                     o.Events = new OpenIdConnectEvents()
                     {
                         OnRedirectToIdentityProviderForSignOut = async context =>
@@ -128,14 +130,12 @@ namespace OpenId
                 o.GetClaimsFromUserInfoEndpoint = true;
                 o.SaveTokens = true;
 
-                o.CallbackPath =
-                    "/signin-adc2"; // Standard is signin-oidc, jedoch muss es PRO OpenIdConnect Provider einmalig sein
-                o.RemoteSignOutPath =
-                    "/signout-adc2"; // um direkt für weitere Provider gewappnet zu sein, auch bei nur einem Pfad festlegen
-                o.SignedOutCallbackPath = "/signedout-callback-adc2"; // so spart man sich später anpassungen
+                o.CallbackPath = "/signin-adc2"; 
+                o.RemoteSignOutPath = "/signout-adc2"; 
+                o.SignedOutCallbackPath = "/signedout-callback-adc2"; 
                 o.SignInScheme = "External";
                 o.SignOutScheme = "Cookies";
-                o.SignedOutRedirectUri = "/";
+                o.SignedOutRedirectUri = "/Contact";
                 o.Events = new OpenIdConnectEvents()
                 {
                     OnRedirectToIdentityProviderForSignOut = async context =>
