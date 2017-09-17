@@ -80,6 +80,7 @@ namespace OpenId.Pages
         {
             [Required]
             [MaxLength(200)]
+            [Display(Name = "Provider")]
             public string AuthenticationScheme { get; set; }
             
             public string ReturnUrl { get; set; }

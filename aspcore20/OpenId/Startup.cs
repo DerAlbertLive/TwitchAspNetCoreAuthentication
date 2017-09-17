@@ -20,7 +20,8 @@ namespace OpenId
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var config = Configuration.GetSection("Authentication:ADC");
+            var config = new OpenIdConfiguration();
+            Configuration.GetSection("Authentication:ADC").Bind(config);
 
             var authBuilder = services.AddAuthentication(o =>
                 {
@@ -35,10 +36,13 @@ namespace OpenId
                     o.Cookie.Name = "ADC.Authentication";
                 })
                 .AddCookie("External", o => { o.Cookie.Name = "ADC.External"; })
-                .AddOpenIdConnect("ADC", config["DisplayName"], o =>
+                .AddOpenIdConnect("ADC", config.DisplayName, o =>
                 {
-                    config.Bind(o);
-                    var scopes = config["Scopes"];
+                    o.Authority = config.Authority;
+                    o.ClientId = config.ClientId;
+                    o.ClientSecret = config.ClientSecret;
+                    o.ResponseType = config.ResponseType;
+                    var scopes = config.Scopes;
                     if (!string.IsNullOrWhiteSpace(scopes))
                     {
                         o.Scope.Clear();
@@ -110,12 +114,17 @@ namespace OpenId
 
         private AuthenticationBuilder AddSecondOpenIdConfiguration(AuthenticationBuilder builder)
         {
-            var config = Configuration.GetSection("Authentication:ADC2");
+            var config = new OpenIdConfiguration();
+                Configuration.GetSection("Authentication:ADC2").Bind(config);
 
-            return builder.AddOpenIdConnect("ADC2", config["DisplayName"], o =>
+            return builder.AddOpenIdConnect("ADC2", config.DisplayName, o =>
             {
-                config.Bind(o);
-                var scopes = config["Scopes"];
+                o.Authority = config.Authority;
+                o.ClientId = config.ClientId;
+                o.ClientSecret = config.ClientSecret;
+                o.ResponseType = config.ResponseType;
+
+                var scopes = config.Scopes;
                 if (!string.IsNullOrWhiteSpace(scopes))
                 {
                     o.Scope.Clear();
