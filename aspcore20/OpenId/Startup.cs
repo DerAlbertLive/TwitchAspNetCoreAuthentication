@@ -137,7 +137,7 @@ namespace OpenId
                 o.TokenValidationParameters.RoleClaimType = "role";
 
                 o.GetClaimsFromUserInfoEndpoint = true;
-                o.SaveTokens = true;
+                o.SaveTokens = false;
 
                 o.CallbackPath = "/signin-adc2"; 
                 o.RemoteSignOutPath = "/signout-adc2"; 

@@ -1,0 +1,13 @@
+﻿@page
+@model Authorization.Pages.ShowInvoiceModel
+@{
+    ViewData["Title"] = "Rechnungsanzeige";
+}
+<h2>@ViewData["Title"]</h2>
+
+<h3>@Model.Message</h3>
+
+@if (Model.Invoice != null)
+{
+    <p>Betrag @Model.Invoice.Value.ToString("C") </p>
+}

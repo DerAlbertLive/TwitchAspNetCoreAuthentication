@@ -1,10 +1,12 @@
-using Cookie.Services;
+using Authorization.Security;
+using Authorization.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Cookie
+namespace Authorization
 {
     public class Startup
     {
@@ -20,15 +22,25 @@ namespace Cookie
         {
             services.AddScoped<IUserClaimsService, UserClaimsService>();
 
-            services.AddAuthentication(o =>
-                {
-                    o.DefaultScheme = "Cookies";
-                })
+            services.AddAuthentication(o => { o.DefaultScheme = "Cookies"; })
                 .AddCookie("Cookies", o =>
                 {
-                    o.Cookie.Name = "ADC.CookieDemo.Auth";
+                    o.Cookie.Name = "ADC.AuthorizationDemo.Auth";
                     o.LoginPath = "/Login";
+                    o.AccessDeniedPath = "/Denied";
                 });
+
+            services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("Is16", builder => { builder.AddRequirements(new MinimumAgeRequirement(16)); });
+
+                    options.AddPolicy("InvoiceReader",
+                        builder => { builder.RequireClaim("invoice", "read", "write"); });
+                    options.AddPolicy("InvoiceWriter", builder => { builder.RequireClaim("invoice", "write"); });
+                })
+                .AddScoped<IAuthorizationHandler, MinimumAgeRequirementHandler>()
+                .AddScoped<IAuthorizationHandler, InvoiceAuthorizationRequirementHandler>();
+            
             services.AddMvc();
         }
 
@@ -45,9 +57,7 @@ namespace Cookie
             }
 
             app.UseStaticFiles();
-
             app.UseAuthentication();
-            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -1,0 +1,20 @@
+﻿@page
+@using Authorization.Pages
+@model Authorization.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.IsAuthenticated)
+{
+    <h3>Aktuelle Claims</h3>
+    <table class="table table-striped">
+        @foreach (var claim in Model.Claims)
+        {
+            <tr><td>@claim.Type</td><td>@claim.Value</td> </tr>
+        }
+    </table>
+} else {
+    <h3 class="alert-info">Der aktuelle Benutzer ist nicht authentifiziert</h3>
+}

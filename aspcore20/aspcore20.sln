@@ -1,10 +1,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cookie", "Cookie\Cookie.csproj", "{A4246041-CD72-48FD-A42B-1F9267080ABD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenId", "OpenId\OpenId.csproj", "{FAEEFACC-BFBD-48F9-BCF4-5A16B0EBF439}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization", "Authorization\Authorization.csproj", "{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,18 @@ Global
 		{FAEEFACC-BFBD-48F9-BCF4-5A16B0EBF439}.Release|x64.Build.0 = Release|Any CPU
 		{FAEEFACC-BFBD-48F9-BCF4-5A16B0EBF439}.Release|x86.ActiveCfg = Release|Any CPU
 		{FAEEFACC-BFBD-48F9-BCF4-5A16B0EBF439}.Release|x86.Build.0 = Release|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Debug|x64.Build.0 = Debug|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Debug|x86.Build.0 = Debug|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|x64.ActiveCfg = Release|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|x64.Build.0 = Release|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|x86.ActiveCfg = Release|Any CPU
+		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
