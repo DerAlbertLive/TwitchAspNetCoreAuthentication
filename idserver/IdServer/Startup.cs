@@ -38,7 +38,6 @@ namespace IdServer
                     options.Events.RaiseFailureEvents = true;
                     options.Events.RaiseErrorEvents = true;
                 })
-                .AddInMemoryClients(Clients.Get())
                 .AddInMemoryClients(ClientLoader.LoadClient(_config))
                 .AddInMemoryIdentityResources(ResourceLoader.LoadIdentityResources(_config))
                 .AddInMemoryApiResources(ResourceLoader.LoadApiResources(_config))

@@ -67,7 +67,7 @@ namespace IdServer.Configuration
         /// <summary>
         /// Specifies the allowed grant types (legal combinations of AuthorizationCode, Implicit, Hybrid, ResourceOwner, ClientCredentials). Defaults to Implicit.
         /// </summary>
-        public ICollection<string> AllowedGrantTypes { get; set; } = new HashSet<string>(new[]{"implicit"});
+        public ICollection<string> AllowedGrantTypes { get; set; } = new HashSet<string>();
 
 
         /// <summary>

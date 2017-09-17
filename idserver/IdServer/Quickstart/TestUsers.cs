@@ -16,6 +16,8 @@ namespace IdServer.Quickstart
             new TestUser{SubjectId = "818727", Username = "alice", Password = "alice", 
                 Claims = 
                 {
+                    new Claim("custom1", "AliceCustom1"),
+                    new Claim("custom2", "AliceCustom2"),
                     new Claim(JwtClaimTypes.Name, "Alice Smith"),
                     new Claim(JwtClaimTypes.GivenName, "Alice"),
                     new Claim(JwtClaimTypes.FamilyName, "Smith"),
@@ -28,6 +30,9 @@ namespace IdServer.Quickstart
             new TestUser{SubjectId = "88421113", Username = "bob", Password = "bob", 
                 Claims = 
                 {
+                    new Claim("custom1", "BobCustom1"),
+                    new Claim("custom2", "BobCustom2"),
+                    new Claim("custom3", "BobCustom2"),
                     new Claim(JwtClaimTypes.Name, "Bob Smith"),
                     new Claim(JwtClaimTypes.GivenName, "Bob"),
                     new Claim(JwtClaimTypes.FamilyName, "Smith"),
