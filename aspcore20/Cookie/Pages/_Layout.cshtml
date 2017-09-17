@@ -80,20 +80,6 @@
 
 @RenderSection("Scripts", required: false)
 <form id ="LogoutForm" asp-page="/Logout" method="post" class="hidden"></form>
-@{
-    var antiforgeryTokens = Antiforgery.GetAndStoreTokens(Context);
-}
-<script>
-    function onLogut(a, b) {
-        console.log(a, b);
-    }
-    
-    $('.nav').on('click', 'a[href="/Logout"]', function() {
-        var form = document.getElementBy('LogoutForm');
-        form.submit();
-        return false;
-    });
-</script>
 
 </body>
 </html>

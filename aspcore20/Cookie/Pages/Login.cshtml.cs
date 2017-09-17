@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Cookie.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,8 +11,11 @@ namespace Cookie.Pages
 {
     public class LoginModel : PageModel
     {
-        public LoginModel()
+        private readonly IUserClaimsService _userClaimsService;
+
+        public LoginModel(IUserClaimsService userClaimsService)
         {
+            _userClaimsService = userClaimsService;
             Input = new InputModel();
         }
         [BindProperty]
@@ -32,10 +34,8 @@ namespace Cookie.Pages
             }
             if (string.Compare(Input.Username, Input.Password, StringComparison.Ordinal) == 0)
             {
-                var claims = new Claim[]
-                {
-                    new Claim("name", Input.Username),
-                };
+                var claims = _userClaimsService.GetClaimsForUser(Input.Username);
+                
                 var identity = new ClaimsIdentity(claims, "Local", "name", "role");
 
                 await HttpContext.SignInAsync(new ClaimsPrincipal(identity));

@@ -1,4 +1,5 @@
 ﻿@page
+@using Microsoft.AspNetCore.Http
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -14,7 +15,7 @@
 }
 else
 {
-    <a asp-controller="Security" asp-action="Login">Einloggen</a>
+    <a asp-controller="Security" asp-action="Authenticate">Einloggen</a>
 }
 
 <h2>Identities</h2>
@@ -22,7 +23,7 @@ else
 {
     <h3>@identity.AuthenticationType (@identity.Name)</h3>
     <table class="table table-striped">
-        <tr><td>Name</td><td>Value</td><td>Issuer</td></tr>
+        <tr><td>Type</td><td>Value</td><td>Issuer</td></tr>
         @foreach (var claim in identity.Claims)
         {
             <tr><td>@claim.Type</td><td>@claim.Value</td><td>@claim.Issuer</td></tr>

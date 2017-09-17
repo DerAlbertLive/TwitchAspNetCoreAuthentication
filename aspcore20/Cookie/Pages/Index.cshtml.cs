@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -17,5 +18,6 @@ namespace Cookie.Pages
 
         public bool IsAuthenticated => User.Identity.IsAuthenticated;
         public IEnumerable<Claim> Claims => User.Claims;
+        public IEnumerable<ClaimsIdentity> Identities => User.Identities;
     }
 }

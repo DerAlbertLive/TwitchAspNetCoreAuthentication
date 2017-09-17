@@ -32,7 +32,7 @@ namespace IdServer.Quickstart
                 {
                     new Claim("custom1", "BobCustom1"),
                     new Claim("custom2", "BobCustom2"),
-                    new Claim("custom3", "BobCustom2"),
+                    new Claim("custom3", "BobCustom3"),
                     new Claim(JwtClaimTypes.Name, "Bob Smith"),
                     new Claim(JwtClaimTypes.GivenName, "Bob"),
                     new Claim(JwtClaimTypes.FamilyName, "Smith"),

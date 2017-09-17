@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -27,6 +28,15 @@ namespace OpenId.Controllers
             return Content("");
         }
 
+        [Authorize]
+        public IActionResult Authenticate(string returnUrl = "~/")
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return NotFound();
+        }
 
         public IActionResult Login(string returnUrl = "~/")
         {
