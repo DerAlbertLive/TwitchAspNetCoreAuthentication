@@ -1,0 +1,14 @@
+﻿@page
+
+<h2>Du kommst hier nicht rein</h2>
+
+Dies Seite sind über die Startup.cs geschützt worden
+
+<pre>
+services.AddMvc()
+    .AddRazorPagesOptions(o =>
+    {
+        o.Conventions.AuthorizePage("/Encrypt");
+        o.Conventions.AuthorizePage("/Decrypt");
+    });
+</pre>

@@ -8,6 +8,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenId", "OpenId\OpenId.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization", "Authorization\Authorization.csproj", "{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProtection", "DataProtection\DataProtection.csproj", "{BF265A38-C930-4352-BD37-85E016F52EE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,18 @@ Global
 		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|x64.Build.0 = Release|Any CPU
 		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|x86.ActiveCfg = Release|Any CPU
 		{FABE639B-AFEE-4453-A809-6D2C9D1CCA17}.Release|x86.Build.0 = Release|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Debug|x64.Build.0 = Debug|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Debug|x86.Build.0 = Debug|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Release|x64.ActiveCfg = Release|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Release|x64.Build.0 = Release|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Release|x86.ActiveCfg = Release|Any CPU
+		{BF265A38-C930-4352-BD37-85E016F52EE7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

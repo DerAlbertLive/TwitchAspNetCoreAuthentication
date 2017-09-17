@@ -1,0 +1,9 @@
+﻿@page
+@model DataProtection.Pages.EncryptModel
+
+<h2>Verschlüsseln</h2>
+
+<form method="post">
+    <textarea asp-for="Input.Text"></textarea>
+    <button type="submit" class="btn btn-primary">Verschlüsseln</button>
+</form>
