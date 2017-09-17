@@ -27,15 +27,20 @@ namespace OpenId
                 {
                     o.DefaultAuthenticateScheme = "Cookies";
                     o.DefaultChallengeScheme = "Cookies";
-                    o.DefaultSignInScheme = "Cookies";
+                    o.DefaultSignInScheme = "External";
                     o.DefaultSignOutScheme = "Cookies";
                 })
                 .AddCookie("Cookies", o =>
                 {
+                    o.Cookie.HttpOnly = true;
                     o.LoginPath = "/Login";
                     o.Cookie.Name = "ADC.Authentication";
                 })
-                .AddCookie("External", o => { o.Cookie.Name = "ADC.External"; })
+                .AddCookie("External", o =>
+                {
+                    o.Cookie.HttpOnly = true;
+                    o.Cookie.Name = "ADC.External";
+                })
                 .AddOpenIdConnect("ADC", config.DisplayName, o =>
                 {
                     o.Authority = config.Authority;
@@ -63,9 +68,6 @@ namespace OpenId
                     o.CallbackPath = "/signin-adc";
                     o.RemoteSignOutPath = "/signout-adc"; 
                     o.SignedOutCallbackPath = "/signedout-callback-adc";
-
-                    o.SignInScheme = "External";
-                    o.SignOutScheme = "Cookies";
                     o.SignedOutRedirectUri = "/"; // dahin wird nach dem erfolgtem Logout weitergeleitet
                     o.Events = new OpenIdConnectEvents()
                     {
@@ -142,8 +144,6 @@ namespace OpenId
                 o.CallbackPath = "/signin-adc2"; 
                 o.RemoteSignOutPath = "/signout-adc2"; 
                 o.SignedOutCallbackPath = "/signedout-callback-adc2"; 
-                o.SignInScheme = "External";
-                o.SignOutScheme = "Cookies";
                 o.SignedOutRedirectUri = "/Contact";
                 o.Events = new OpenIdConnectEvents()
                 {

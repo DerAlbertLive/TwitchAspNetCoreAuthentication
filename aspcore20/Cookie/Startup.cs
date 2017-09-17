@@ -1,6 +1,7 @@
 using Cookie.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,6 +27,9 @@ namespace Cookie
                 })
                 .AddCookie("Cookies", o =>
                 {
+                    o.Cookie.HttpOnly = true;
+                    o.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest; // nur bei Development
+                    // o.Cookie.SecurePolicy = CookieSecurePolicy.Always; // in Production immer TLS nutzten
                     o.Cookie.Name = "ADC.CookieDemo.Auth";
                     o.LoginPath = "/Login";
                 });
