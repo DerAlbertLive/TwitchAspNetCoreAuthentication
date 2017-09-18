@@ -14,7 +14,7 @@ Folgende Beispiele gibt es
 * [Authorization](aspcore20/Authorization/)
 * [DataProtection](aspcore20/DataProtection/)
  
-sowie den [IdServer](idserver/IdServer). Und hier kann man die [Folien herunterladen](/DerAlbertSamples/ADC2017Security/raw/master/ADC2017-ASP-NET-Core-Security.pptx).
+sowie den [IdServer](idserver/IdServer). Und hier kann man die [Folien herunterladen](https:/github.com/DerAlbertSamples/ADC2017Security/raw/master/ADC2017-ASP-NET-Core-Security.pptx).
 
 Der IdServer ist aktuell noch gehostet unter https://idserveradc2017.azurewebsites.net/ und kann für die Benutzer *alice* und *bob* verwendet werden. Benutzername ist gleich Password. Wichtig für den Betrieb des OpenId Beispiel ist das dieser local auf *https://localhost:44387/* gehostet wird, sonst stimmen die Urls nicht.
 
