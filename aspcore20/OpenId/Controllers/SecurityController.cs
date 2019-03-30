@@ -64,7 +64,7 @@ namespace OpenId.Controllers
             var idToken = await HttpContext.GetTokenAsync("External", "id_token");
             
             // für den autmatischen Single Signout braucht OpenIdConnect das id_token zur Bestätigung, das die Anwendung es anfordert
-            // ohne id_token wird auf der OI Provider Seite nachgefragt.
+            // ohne id_token wird auf der OI Provider Seite überprüft.
             if (!string.IsNullOrWhiteSpace(idToken))
             {
                 properties.StoreTokens(new[] { new AuthenticationToken { Name = "id_token", Value = idToken } });
@@ -80,7 +80,7 @@ namespace OpenId.Controllers
             // Wenn man Claims aus dem Access Token in den Cookie Claims haben will, so muss man diese hinzufügen.
             await AddAccessTokenClaimsToPrincipal(authScheme, principal);
             // nur für die Demonstration,
-            await AddIdTokennClaimsToPrincipal(authScheme, principal);
+            await AddIdTokenClaimsToPrincipal(authScheme, principal);
 
             await HttpContext.SignInAsync("Cookies", principal, properties);
             await HttpContext.SignOutAsync("External");
@@ -102,7 +102,7 @@ namespace OpenId.Controllers
             return AddTokenClaimsToPrincipal(authenticationScheme, principal, "access_token");
         }
 
-        private Task AddIdTokennClaimsToPrincipal(string authenticationScheme, ClaimsPrincipal principal)
+        private Task AddIdTokenClaimsToPrincipal(string authenticationScheme, ClaimsPrincipal principal)
         {
             return AddTokenClaimsToPrincipal(authenticationScheme, principal, "id_token");
         }
