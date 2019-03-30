@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+@if (Model.IsAuthenticated)
+{
+<h2>Identities</h2>
+    foreach (var identity in Model.Identities)
+    {
+<h3>@identity.AuthenticationType (@identity.Name)</h3>
+<table class="table table-striped">
+    <tr><td>Type</td><td>Value</td><td>Issuer</td></tr>
+    @foreach (var claim in identity.Claims)
+            {
+    <tr><td>@claim.Type</td><td>@claim.Value</td><td>@claim.Issuer</td></tr>
+            }
+</table>
+    }
+}
+else
+{
+<h3 class="alert-info alert">Der aktuelle Benutzer ist nicht authentifiziert</h3>
+<a asp-page="./Login">LogIn</a>
+}

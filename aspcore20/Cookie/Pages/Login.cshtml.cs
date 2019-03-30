@@ -18,6 +18,7 @@ namespace Cookie.Pages
             _userClaimsService = userClaimsService;
             Input = new InputModel();
         }
+
         [BindProperty]
         public InputModel Input { get; set; }
 
