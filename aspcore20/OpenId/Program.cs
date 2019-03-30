@@ -14,10 +14,10 @@ namespace OpenId
     {
         public static async Task Main(string[] args)
         {
-            await BuildWebHost(args).Build().RunAsync();
+            await CreateWebHostBuilder(args).Build().RunAsync();
         }
 
-        public static IWebHostBuilder BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
