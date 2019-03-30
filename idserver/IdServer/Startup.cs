@@ -42,7 +42,7 @@ namespace IdServer
                 .AddInMemoryIdentityResources(ResourceLoader.LoadIdentityResources(_config))
                 .AddInMemoryApiResources(ResourceLoader.LoadApiResources(_config))
                 .AddDeveloperSigningCredential(persistKey:true)
-                .AddSecretParser<ClientAssertionSecretParser>()
+                .AddSecretParser<JwtBearerClientAssertionSecretParser>()
                 .AddSecretValidator<PrivateKeyJwtSecretValidator>()
                 .AddAppAuthRedirectUriValidator()
                 .AddTestUsers(TestUsers.Users);

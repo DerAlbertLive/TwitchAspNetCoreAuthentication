@@ -3,6 +3,7 @@
 
 
 using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
@@ -10,18 +11,17 @@ namespace IdServer
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             Console.Title = "IdentityServer4";
 
-            BuildWebHost(args).Run();
+            await BuildWebHostBuilder(args).Build().RunAsync();
         }
 
-        public static IWebHost BuildWebHost(string[] args)
+        public static IWebHostBuilder BuildWebHostBuilder(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
-                    .UseStartup<Startup>()
-                    .Build();
+                    .UseStartup<Startup>();
         }            
     }
 }

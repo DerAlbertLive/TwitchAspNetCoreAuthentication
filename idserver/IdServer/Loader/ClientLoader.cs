@@ -44,8 +44,7 @@ namespace IdServer.Loader
                 AccessTokenLifetime = options.AccessTokenLifetime,
                 AuthorizationCodeLifetime = options.AuthorizationCodeLifetime,
                 IncludeJwtId = options.IncludeJwtId,
-                AlwaysSendClientClaims = options.AlwaysSendClientClaims,
-                PrefixClientClaims = options.PrefixClientClaims
+                AlwaysSendClientClaims = options.AlwaysSendClientClaims
             };
 
             if (options.ClientSecrets.Any())
