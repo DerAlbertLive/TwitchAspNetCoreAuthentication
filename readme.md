@@ -1,4 +1,7 @@
 # Code zum Live Stream https://www.twitch.tv/DerAlbertLive
+
+Die Aufzeichung der passenden Sitzung ist auch auf YouTube https://www.youtube.com/watch?v=3bExQpA_eHo
+
 ## ASP.NET Core Authentication und Authorization Deep Dive
 ## Folien und Beispiel Code
 
